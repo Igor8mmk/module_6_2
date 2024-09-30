@@ -1,21 +1,20 @@
 class Vehicle:
-    __COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
-
 
     def __init__(self, owner, model, engine_power, color):
        self.owner = str(owner)
-       self._model = str(model)
-       self._engine_power = int(engine_power)
-       self._color = color
+       self.__model = str(model)
+       self.__engine_power = int(engine_power)
+       self.__color = color
+       self.__COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
 
     def get_model(self):
-        print(f'Модель {self._model}')
+        print(f'Модель {self.__model}')
 
     def get_horsepower(self):
-        print(f'Мощность двигателя: {self._engine_power}')
+        print(f'Мощность двигателя: {self.__engine_power}')
 
     def get_color(self):
-        print(f'Цвет: {self._color}')
+        print(f'Цвет: {self.__color}')
 
     def print_info(self):
         self.get_model()
@@ -24,13 +23,14 @@ class Vehicle:
         print(f'Владелец: {self.owner}')
 
     def set_color(self, new_color):
-        if new_color.lower() in Vehicle.__COLOR_VARIANTS:
-            self._color = new_color
+        if new_color.lower() in self.__COLOR_VARIANTS:
+            self.__color = new_color
         else:
             print(f'Нельзя сменить цвет на {new_color}')
 
 class Sedan(Vehicle):
     __PASSENGERS_LIMIT = 5
+
 
 # Текущие цвета __COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
 vehicle1 = Sedan('Fedos', 'Toyota Mark II',  500, 'blue')
